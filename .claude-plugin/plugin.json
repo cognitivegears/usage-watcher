@@ -1,0 +1,18 @@
+{
+  "name": "usage-buffer",
+  "version": "0.1.0",
+  "description": "Stops agents before plan usage limits so a buffer is left for Claude chat; warns agents to wrap up first",
+  "author": { "name": "Nathan Byrd" },
+  "license": "MIT",
+  "keywords": ["usage", "rate-limit", "mod"],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "weeklyReservePerDay": { "type": "number", "title": "Weekly reserve per day left (%)", "description": "Percent of the weekly limit held back for each day until it resets", "default": 5, "min": 0, "max": 100 },
+    "weeklyReserveMin": { "type": "number", "title": "Weekly reserve minimum (%)", "description": "Never hold back less than this of the weekly limit", "default": 5, "min": 0, "max": 100 },
+    "weeklyReserveMax": { "type": "number", "title": "Weekly reserve maximum (%)", "description": "Never hold back more than this of the weekly limit", "default": 20, "min": 0, "max": 100 },
+    "fiveHourReserve": { "type": "number", "title": "5-hour reserve (%)", "description": "Percent of the 5-hour limit held back", "default": 10, "min": 0, "max": 100 },
+    "warnMargin": { "type": "number", "title": "Warning margin (points)", "description": "Start warning you and the agents this many points before the stop level", "default": 10, "min": 0, "max": 100 },
+    "warnEvery": { "type": "number", "title": "Re-warn agents every (points)", "description": "Remind each agent again each time usage climbs this many more points", "default": 3, "min": 1, "max": 100 },
+    "snoozeDefault": { "type": "string", "title": "Default snooze", "description": "How long /usage-buffer snooze lasts with no argument, e.g. 30m, 1h, 2h30m", "default": "1h" }
+  }
+}

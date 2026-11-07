@@ -1,0 +1,6 @@
+{
+  "name": "usage-watcher",
+  "owner": { "name": "Nathan Byrd" },
+  "description": "Claude Code mod that keeps a usage buffer for Claude chat by stopping agents before plan limits",
+  "plugins": [{ "name": "usage-buffer", "source": "./" }]
+}
